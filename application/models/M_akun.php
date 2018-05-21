@@ -22,5 +22,13 @@ class M_akun extends CI_Model{
 
     return $this->db->get();
   }
+  function chekduplicate($email)
+  {
+    $where = array(
+      'email' => $email
+    );
+     return $this->db->get_where('t_user', $where);
+
+  }
 
 }

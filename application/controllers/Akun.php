@@ -19,28 +19,30 @@ class Akun extends CI_Controller{
       'email'    => $email,
       'password' => md5($password)
     );
-        $cek = $this->m_akun->logincek($data);
-        if($cek->num_rows() > 0 )
-        {
-          foreach($cek->result() as $key)
-          {
-            $email  = $key->email;
-            $status = $key->status;
-          }
 
-          $session = array(
-            'email' => $email,
-            'status' => $status
+            $cek = $this->m_akun->logincek($data);
+            if($cek->num_rows() > 0 )
+            {
+              foreach($cek->result() as $key)
+              {
+                $email  = $key->email;
+                $status = $key->status;
+              }
 
-          );
+              $session = array(
+                'email' => $email,
+                'status' => $status
 
-          $this->session->set_userdata($session);
-        }
-        if($status == 1){
-          redirect(base_url('user/home') );
-        }else{
-          redirect(base_url('home') );
-        }
+              );
+
+              $this->session->set_userdata($session);
+            }
+            if($status == 1){
+              redirect(base_url('user/home') );
+            }else{
+              $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Email Belum Di Konfirmasi, Silahkan Konfirmasi Terlebih Dahulu </div>');
+              redirect(base_url('home') );
+            }
   }
 
 
@@ -48,9 +50,8 @@ class Akun extends CI_Controller{
   {
     $this->form_validation->set_rules('nama_depan', 'Nama Depan', 'required');
     $this->form_validation->set_rules('nama_belakang', 'Nama Belakang', 'required');
-    //$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[t_user.email]');
-
-    $this->form_validation->set_message('is_unique','$this %s id Already Exist');
+    $this->form_validation->set_rules('email', 'Email', 'is_unique[t_user.email]');
+    $this->form_validation->set_message('is_unique','this %s id Already Exist');
 
     if($this->form_validation->run() == FALSE)
     {
@@ -79,28 +80,29 @@ class Akun extends CI_Controller{
         'no_telp'       => $tlp,
         'status'        => $status
       );
+                  if($this->m_akun->insertuser($data) )
+                  {
+                            if($this->sendemail($em, $emailhash) )
+                            {
+                              //successfull email
+                                $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Silahkan Konfirmasi Di Email Kamu </div>');
+                                redirect(base_url('home'));
+                            }
+                            else
+                             {
+                              //failed email
+                                $this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Gagal Mengirim Email </div>');
+                                redirect(base_url('home'));
+                            }
+                  }
+                  else {
+              //error email
+                  $this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Ada Kesalahan </div>');
+                  redirect(base_url());
+                  }
 
-      if($this->m_akun->insertuser($data) )
-      {
-        if($this->sendemail($em, $emailhash) )
-        {
-          //successfull email
-            $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Silahkan Konfirmasi Di Email Kamu </div>');
-            redirect(base_url('home'));
-        }
-        else {
-          //failed email
-            $this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Gagal Mengirim Email </div>');
-            redirect(base_url('home'));
-        }
-      }
-      else {
-        //error email
-            $this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Ada Kesalahan </div>');
-            redirect(base_url());
-      }
     }
-  }
+  }//end functions
 
   public function sendemail($em, $emailhash)
   {
@@ -118,10 +120,10 @@ class Akun extends CI_Controller{
 
     $this->email->initialize($config);
     $url = base_url()."akun/confirmation/".$emailhash;
-    $this->email->from('wahyualdarisi30@gmail.com','All Tim Project');
+    $this->email->from('Lionair@group.com','Lion Air');
 
     $this->email->to($em);
-    $this->email->subject('Please Verify Your Email Address');
+    $this->email->subject('Verifikasi Akun');
     $message = "<html><head><head></head><body><p>Hi,</p><p>Thanks for registration with CodesQuery.</p><p>Please click below link to verify your email.</p>".$url."<br/><p>Sincerely,</p><p>CodesQuery Team</p></body></html>";
     $this->email->message($message);
     return $this->email->send();
@@ -132,11 +134,11 @@ class Akun extends CI_Controller{
   {
     if($this->m_akun->verifyEmail($key) )
     {
-      $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Your Email Address is successfully verified!</div>');
+      $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Email Berhasil Di Konfirmasi . Silahkan Login </div>');
       redirect(base_url('home'));
     }
     else {
-      $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Email Address Verification Failed </div>');
+      $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Maaf .. Email Gagal Di Konfirmasi </div>');
       redirect(base_url('home'));
     }
   }
