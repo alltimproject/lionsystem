@@ -108,8 +108,8 @@ class Akun extends CI_Controller{
     $config['protocol']   = 'smtp';
     $config['smtp_host']  = 'ssl://smtp.gmail.com';
     $config['smtp_port']  = '465';
-    $config['smtp_user']  = 'wahyualfarisi30@gmail.com';
-    $config['smtp_pass']  = 'wahyuais@#$';
+    $config['smtp_user']  = '';
+    $config['smtp_pass']  = '';
     $config['mail_type']  = 'html';
     $config['charset']     = 'iso-8859-1';
     $config['wordwrap']    = TRUE;
