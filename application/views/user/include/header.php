@@ -22,6 +22,9 @@
         <!-- THEME STYLES -->
         <link href="<?= base_url().'assets/css/layout.min.css'  ?>" rel="stylesheet" type="text/css"/>
 
+        <!-- style css -->
+        <link rel="stylesheet" href="<?= base_url().'assets/css/style.css'?>">
+
         <!-- Favicon -->
         <link rel="shortcut icon" href="favicon.ico"/>
     </head>

@@ -1,16 +1,24 @@
       <div class="promo-block parallax-window" data-parallax="scroll" data-image-src="<?= base_url().'images/bg01.jpg' ?> ">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-md-6">
                         <div class="promo-block-divider">
-                            <h1 class="promo-block-title"><img src="<?= base_url().'images/bg03.png' ?>" width="350px" alt=""> </h1>
-                            <p class="promo-block-text"><h1 class="w3-text-white">REFUND & RESCHEDULE SYSTEM</h1></p>
+                            <h1 class="promo-block-title"><img src="<?= base_url().'images/bg03.png' ?>" width="250px" alt=""> </h1>
+                          
+                            <div class="form-group kode-booking-text">
+                              <input type="text" class="form-control" style="width:290px;" name="" placeholder="Cari Kode Booking .. " >
+                              <input type="submit" class="btn btn-default" name="" value="Cari">
+                            </div>
                         </div>
+                    </div>
+                    <div class="col-md-6">
+
                     </div>
                 </div>
                 <!--// end row -->
             </div>
         </div>
+
 
         <div id="about">
             <div class="container-fluid content-lg">
@@ -37,59 +45,14 @@
                   </div>
 
                   <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
-                    <h5>Silahkan Login Untuk / Registrasi Jika Tidak Ada Akun</h5>
-                    <p class="w3-text-grey">
-                        <form class="w3-container" action="<?= base_url().'akun/loginuser'; ?>" method="post">
-                          <p>
-                          <label>Email</label></p>
-                          <input class="w3-input" name="email" type="text">
-                          <p>
-                          <label>Password</label></p>
-                          <input class="w3-input" name="password" type="password">
 
-                          <div class="w3-right">
-                            <input type="submit" class="w3-btn w3-red" name="login" value="Login">
-                          </div>
-                        </form>
-                    </p><br>
                   </div>
 
 
                   <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
-                    <h5>Daftar Disini</h5>
-                    <p class="w3-text-grey">
-                      <form class="w3-container" action="<?= base_url().'akun/registeruser'?>" method="post">
-                        <div class="w3-row-padding">
-                              <div class="w3-half">
-                                <label>Nama Depan</label>
-                                <input class="w3-input" type="text" name="nama_depan" placeholder="Masukan Nama Depan">
-                                <span class="w3-text-red"><?= form_error('nama_depan') ?> </span>
-                              </div>
-                              <div class="w3-half">
-                                <label>Nama Belakang</label>
-                                <input class="w3-input" type="text" name="nama_belakang" placeholder="Masukan Nama Belakang">
-                                <span class="w3-text-red"><?= form_error('nama_belakang') ?></span>
-                              </div>
-                              <div class="w3-half">
-                                <label>Email</label>
-                                <input class="w3-input" type="text" name="email" placeholder="Masukan Email">
-                                <span class="w3-text-red"><?= form_error('email')?> </span>
-                              </div>
-                              <div class="w3-half">
-                                <label>No. Telepon</label>
-                                <input class="w3-input" type="text" name="no_telp" placeholder="Masukan No. Telepon">
-                              </div>
-                              <div class="w3-half">
-                                <label>Password</label>
-                                <input class="w3-input" type="password" name="password" placeholder="Masukan No. Telepon">
-                              </div>
-                            </div>
-                            <div class="w3-right">
-                              <input type="submit" class="w3-btn w3-red" name="register" value="Daftar">
-                            </div>
-                        </form>
-                    </p><br>
+
                   </div>
+
                   </div>
                   </div>
                 </div>
@@ -119,7 +82,7 @@
                                         <div class="service-info">
                                             <h3>Denpasar, Bali</h3>
                                             <p>Hanya Rp.600.000</p>
-                                            <img src="<?= base_url('images/promo1.jpg')?>" width="170px" alt="">
+                                            <img class="text-center" src="<?= base_url('images/html.png')?>" width="120px" alt="">
                                             <p class="margin-b-5">Hati-Hati Penipuan yang mengatasnamakan Wakil Presiden Republik Indonesia Ataupun Sekretariat Wakil Presiden</p>
                                         </div>
                                         <a href="http://www.wapresri.go.id/struktur-organisasi/" class="content-wrapper-link" target="_blank" rel="nofollow" title="Aplikasi Setwapres"></a>
