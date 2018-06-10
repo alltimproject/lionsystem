@@ -4,7 +4,7 @@
                     <div class="col-md-6">
                         <div class="promo-block-divider">
                             <h1 class="promo-block-title"><img src="<?= base_url().'images/bg03.png' ?>" width="250px" alt=""> </h1>
-                            <h4 class="w3-text-white"><i>REFUND AND RESCEDULE SISTEM</i></h4>
+                            <h4 class="w3-text-white"><i>REFUND AND RESCHEDULE SISTEM</i></h4>
                             <div class="form-group kode-booking-text">
                               <input type="text" class="form-control" style="width:290px;" name="" placeholder="Cari Kode Booking .. " >
                               <input type="submit" class="btn btn-default" name="" value="Cari">
