@@ -1,381 +1,219 @@
-      <div class="promo-block parallax-window" data-parallax="scroll" data-image-src="<?= base_url().'images/bg01.jpg' ?> ">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="promo-block-divider">
-                            <h1 class="promo-block-title"><img src="<?= base_url().'images/bg03.png' ?>" width="250px" alt=""> </h1>
-                            <h4 class="w3-text-white"><i>REFUND AND RESCHEDULE SISTEM</i></h4>
-                            <div class="form-group kode-booking-text">
-                              <input type="text" class="form-control" style="width:290px;" name="" placeholder="Cari Kode Booking .. " >
-                              <input type="submit" class="btn btn-default" name="" value="Cari">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
+<!DOCTYPE html>
+<html lang="en">
 
-                    </div>
-                </div>
-                <!--// end row -->
-            </div>
-        </div>
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url().'assets_user/img/apple-icon.png' ?>">
+  <link rel="icon" type="image/png" href="<?= base_url().'assets_user/img/favicon.png' ?>">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Lion System
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link rel="stylesheet" type="text/css" href="<?= base_url().'assets_user/css/material-kit.css' ?>"  />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link rel="stylesheet" type="text/css" href="<?= base_url().'assets_user/demo/demo.css' ?>"/>
 
+  <script src="<?= base_url().'assets/jquery/jquery.min.js' ?>" type="text/javascript"></script>
+</head>
 
-        <div id="about">
-            <div class="container-fluid content-lg">
-                <div class="row">
-                    <div class="col-sm-3 sm-margin-b-30">
-                        <div class="text-right sm-text-left">
-                            <h2 class="margin-b-0">Informasi Pelanggan</h2>
-                            <b><h4 class="w3-text-red" >021-4503289</h4><i class="fa fa-phone"></i> </b>
-                        </div>
-                    </div>
-                    <div class="col-sm-8 col-sm-offset-1">
-                        <div class="margin-b-60">
-                          <div class="w3-content" style="max-width:1000px">
-                  <div class="w3-red">
-                    <?= $this->session->flashdata('msg'); ?>
-                  </div>
-                  <div class="w3-row w3-center w3-card w3-padding">
-                    <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
-                      <div class="w3-col s6 tablink">Login</div>
-                    </a>
-                    <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
-                      <div class="w3-col s6 tablink">Registrasi</div>
-                    </a>
-                  </div>
-
-                  <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
-
-                  </div>
-
-
-                  <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
-
-                  </div>
-
-                  </div>
-                  </div>
-                </div>
-              </div>
-              <!--// end row -->
-        </div>
+<body class="landing-page sidebar-collapse">
+  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand" href="https://demos.creative-tim.com/material-kit/index.html">
+          Lion System </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
       </div>
-        <!-- End About -->
-        <!-- Experience -->
-        <div id="experience">
-            <div class="bg-color-sky-light" data-auto-height="true">
-                <div class="container content-lg">
-                    <div class="row">
-                        <div class="col-sm-3 sm-margin-b-30">
-                            <div class="text-right sm-text-left">
-                                <h2 class="margin-b-0">Tentang Kami</h2>
-                                <p> <img src="<?= base_url('images/bg04.png')?>" width="250px" alt=""> </p>
-                            </div>
-                        </div>
-                        <div class="col-sm-8 col-sm-offset-1">
-                            <div class="row row-space-2 margin-b-4">
-                                <div class="col-md-4 md-margin-b-4">
-                                    <div class="service" data-height="height">
-                                        <div class="service-element">
-                                            <i class="service-icon icon-badge"></i>
-                                        </div>
-                                        <div class="service-info">
-                                            <h3>Denpasar, Bali</h3>
-                                            <p>Hanya Rp.600.000</p>
-                                            <img class="text-center" src="<?= base_url('images/html.png')?>" width="120px" alt="">
-                                            <p class="margin-b-5">Hati-Hati Penipuan yang mengatasnamakan Wakil Presiden Republik Indonesia Ataupun Sekretariat Wakil Presiden</p>
-                                        </div>
-                                        <a href="http://www.wapresri.go.id/struktur-organisasi/" class="content-wrapper-link" target="_blank" rel="nofollow" title="Aplikasi Setwapres"></a>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 md-margin-b-4">
-                                    <div class="service bg-color-base wow zoomIn" data-height="height" data-wow-duration=".3" data-wow-delay=".1s">
-                                        <div class="service-element">
-                                            <i class="service-icon icon-badge"></i>
-                                        </div>
-                                        <div class="service-info">
-                                            <h3 class="color-white">Setneg</h3>
-                                              <img src="<?= base_url('images/promo2.jpg')?>" width="170px" alt="">
-                                            <p class="color-white margin-b-5">Kementerian Sekretariat Negara Republik Indonesia.</p>
-                                        </div>
-                                        <a href="https://setneg.go.id/" class="content-wrapper-link" target="_blank" rel="nofollow" title="Aplikasi Setneg"></a>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="service" data-height="height">
-                                        <div class="service-element">
-                                            <i class="service-icon icon-badge"></i>
-                                        </div>
-                                        <div class="service-info">
-                                            <h3>KLHK</h3>
-                                              <img src="<?= base_url('images/promo3.jpg')?>" width="170px" alt="">
-                                            <p class="margin-b-5">Pelayanan Terpadu Satu pintu.</p>
-											<p class="margin-b-5">Kementrian Lingkungan Hidup Dan Kehutanan.</p>
-                                        </div>
-                                        <a href="http://www.menlhk.go.id/" class="content-wrapper-link" target="_blank" rel="nofollow" title="Aplikasi KLHK"></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--// end row -->
-                        </div>
-                    </div>
-                    <!--// end row -->
-                </div>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="dropdown nav-item">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+              <i class="material-icons">apps</i> Components
+            </a>
+            <div class="dropdown-menu dropdown-with-icons">
+              <a href="./index.html" class="dropdown-item">
+                <i class="material-icons">layers</i> All Components
+              </a>
+              <a href="https://demos.creative-tim.com/material-kit/docs/2.0/getting-started/introduction.html" class="dropdown-item">
+                <i class="material-icons">content_paste</i> Documentation
+              </a>
             </div>
-        </div>
-        <!-- End Experience -->
-        <!-- Work -->
-        <div id="work">
-            <div class="container content-lg">
-                <div class="row">
-                    <div class="col-sm-3 sm-margin-b-30">
-                        <div class="text-right sm-text-left">
-                            <h2 class="margin-b-0">Promo Bulan Ini</h2>
-                            <p>I build the real value.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-8 col-sm-offset-1">
-                        <!-- Masonry Grid -->
-                        <div class="masonry-grid row row-space-2">
-                            <div class="masonry-grid-sizer col-xs-6 col-sm-6 col-md-1"></div>
-                            <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-8 margin-b-4">
-                                <!-- Work -->
-                                <div class="work work-popup-trigger">
-                                    <div class="work-overlay">
-                                        <img class="full-width img-responsive" src="img/800x400/01.jpg" alt="Portfolio Imagesss">
-                                    </div>
-                                    <div class="work-popup-overlay">
-                                        <div class="work-popup-content">
-                                            <a href="javascript:void(0);" class="work-popup-close">Hide</a>
-                                            <div class="margin-b-30">
-                                                <h3 class="margin-b-5">Art Of Coding</h3>
-                                                <span>Clean &amp; Minimalistic Design</span>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-8 work-popup-content-divider sm-margin-b-20">
-                                                    <div class="margin-t-10 sm-margin-t-0">
-                                                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-                                                        <ul class="list-inline work-popup-tag">
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="http://keenthemes.com/">Design,</a></li>
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="http://keenthemes.com/">Coding,</a></li>
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="http://keenthemes.com/">Portfolio</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="margin-t-10 sm-margin-t-0">
-                                                        <p class="margin-b-5"><strong>Project Leader:</strong> John Doe</p>
-                                                        <p class="margin-b-5"><strong>Designer:</strong> Alisa Keys</p>
-                                                        <p class="margin-b-5"><strong>Developer:</strong> Mark Doe</p>
-                                                        <p class="margin-b-5"><strong>Customer:</strong> Keenthemes</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Work -->
-                            </div>
-                            <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4 margin-b-4">
-                                <!-- Work -->
-                                <div class="work work-popup-trigger">
-                                    <div class="work-overlay">
-                                        <img class="full-width img-responsive" src="img/397x400/01.jpg" alt="Portfolio Image">
-                                    </div>
-                                    <div class="work-popup-overlay">
-                                        <div class="work-popup-content">
-                                            <a href="javascript:void(0);" class="work-popup-close">Hide</a>
-                                            <div class="margin-b-30">
-                                                <h3 class="margin-b-5">Art Of Coding</h3>
-                                                <span>Clean &amp; Minimalistic Design</span>
-                                                <form class="" action="index.html" method="post">
-                                                  <label for=""></label>
-                                                  <input type="text" name="" value="">
-                                                </form>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-8 work-popup-content-divider sm-margin-b-20">
-                                                    <div class="margin-t-10 sm-margin-t-0">
-                                                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-                                                        <ul class="list-inline work-popup-tag">
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="http://keenthemes.com/">Design,</a></li>
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="http://keenthemes.com/">Coding,</a></li>
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="http://keenthemes.com/">Portfolio</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="margin-t-10 sm-margin-t-0">
-                                                        <p class="margin-b-5"><strong>Project Leader:</strong> John Doe</p>
-                                                        <p class="margin-b-5"><strong>Designer:</strong> Alisa Keys</p>
-                                                        <p class="margin-b-5"><strong>Developer:</strong> Mark Doe</p>
-                                                        <p class="margin-b-5"><strong>Customer:</strong> Keenthemes</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Work -->
-                            </div>
-                            <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4 md-margin-b-4">
-                                <!-- Work -->
-                                <div class="work work-popup-trigger">
-                                    <div class="work-overlay">
-                                        <img class="full-width img-responsive" src="img/397x300/01.jpg" alt="Portfolio Image">
-                                    </div>
-                                    <div class="work-popup-overlay">
-                                        <div class="work-popup-content">
-                                            <a href="javascript:void(0);" class="work-popup-close">Hide</a>
-                                            <div class="margin-b-30">
-                                                <h3 class="margin-b-5">Art Of Coding</h3>
-                                                <span>Clean &amp; Minimalistic Design</span>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-8 work-popup-content-divider sm-margin-b-20">
-                                                    <div class="margin-t-10 sm-margin-t-0">
-                                                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-                                                        <ul class="list-inline work-popup-tag">
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="http://keenthemes.com/">Design,</a></li>
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="http://keenthemes.com/">Coding,</a></li>
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="http://keenthemes.com/">Portfolio</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="margin-t-10 sm-margin-t-0">
-                                                        <p class="margin-b-5"><strong>Project Leader:</strong> John Doe</p>
-                                                        <p class="margin-b-5"><strong>Designer:</strong> Alisa Keys</p>
-                                                        <p class="margin-b-5"><strong>Developer:</strong> Mark Doe</p>
-                                                        <p class="margin-b-5"><strong>Customer:</strong> Keenthemes</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Work -->
-                            </div>
-                            <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4 md-margin-b-4">
-                                <!-- Work -->
-                                <div class="work work-popup-trigger">
-                                    <div class="work-overlay">
-                                        <img class="full-width img-responsive" src="img/397x300/02.jpg" alt="Portfolio Image">
-                                    </div>
-                                    <div class="work-popup-overlay">
-                                        <div class="work-popup-content">
-                                            <a href="javascript:void(0);" class="work-popup-close">Hide</a>
-                                            <div class="margin-b-30">
-                                                <h3 class="margin-b-5">Art Of Coding</h3>
-                                                <span>Clean &amp; Minimalistic Design</span>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-8 work-popup-content-divider sm-margin-b-20">
-                                                    <div class="margin-t-10 sm-margin-t-0">
-                                                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-                                                        <ul class="list-inline work-popup-tag">
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="http://keenthemes.com/">Design,</a></li>
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="http://keenthemes.com/">Coding,</a></li>
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="http://keenthemes.com/">Portfolio</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="margin-t-10 sm-margin-t-0">
-                                                        <p class="margin-b-5"><strong>Project Leader:</strong> John Doe</p>
-                                                        <p class="margin-b-5"><strong>Designer:</strong> Alisa Keys</p>
-                                                        <p class="margin-b-5"><strong>Developer:</strong> Mark Doe</p>
-                                                        <p class="margin-b-5"><strong>Customer:</strong> Keenthemes</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Work -->
-                            </div>
-                            <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
-                                <!-- Work -->
-                                <div class="work work-popup-trigger">
-                                    <div class="work-overlay">
-                                        <img class="full-width img-responsive" src="img/397x300/03.jpg" alt="Portfolio Image">
-                                    </div>
-                                    <div class="work-popup-overlay">
-                                        <div class="work-popup-content">
-                                            <a href="javascript:void(0);" class="work-popup-close">Hide</a>
-                                            <div class="margin-b-30">
-                                                <h3 class="margin-b-5">Art Of Coding</h3>
-                                                <span>Clean &amp; Minimalistic Design</span>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-8 work-popup-content-divider sm-margin-b-20">
-                                                    <div class="margin-t-10 sm-margin-t-0">
-                                                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-                                                        <ul class="list-inline work-popup-tag">
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="http://keenthemes.com/">Design,</a></li>
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="http://keenthemes.com/">Coding,</a></li>
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="http://keenthemes.com/">Portfolio</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="margin-t-10 sm-margin-t-0">
-                                                        <p class="margin-b-5"><strong>Project Leader:</strong> John Doe</p>
-                                                        <p class="margin-b-5"><strong>Designer:</strong> Alisa Keys</p>
-                                                        <p class="margin-b-5"><strong>Developer:</strong> Mark Doe</p>
-                                                        <p class="margin-b-5"><strong>Customer:</strong> Keenthemes</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Work -->
-                            </div>
-                        </div>
-                        <!-- End Masonry Grid -->
-                    </div>
-                </div>
-                <!--// end row -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
+              <i class="material-icons">cloud_download</i> Download
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank" data-original-title="Follow us on Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank" data-original-title="Like us on Facebook">
+              <i class="fa fa-facebook-square"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank" data-original-title="Follow us on Instagram">
+              <i class="fa fa-instagram"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url('<?= base_url('images/bg01.jpg') ?>')">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h1><img src="<?= base_url().'images/bg03.png' ?>" width="250px" alt=""> </h1>
+            <h3>Refund and Reschedul System</h3>
+            <br>
+            <form class="form-search">
+              <div class="input-group has-white">
+              <input type="text" name="search-booking" id="search-booking" class="form-control" placeholder="Cari Kode Booking... " style="height: 50px; font-size: 30px;">
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-white btn-raised btn-lg btn-fab btn-round">
+                    <i class="material-icons">search</i>
+                  </button>
+              </div>
             </div>
+            </form>
+          </div>
         </div>
-        <!-- End Work -->
-		<!-- end work -->
-        <!-- Contact -->
-        <div id="contact">
-            <div class="bg-color-sky-light">
-                <div class="container content-lg">
-                    <div class="row">
-                        <div class="col-sm-3 sm-margin-b-30">
-                            <div class="text-right sm-text-left">
-                                <h2 class="margin-b-0">Hubungi Kami</h2>
-                                <p> <img src="<?= base_url('images/bg03.png')?>" width="150px" alt=""> </p>
-                            </div>
-                        </div>
-                        <div class="col-sm-8 col-sm-offset-1">
-                            <div class="row">
-                                <div class="col-md-3 col-xs-6 md-margin-b-30">
-                                    <h5>Lokasi</h5>
-                                    Jl. Jakarta Pusat
-                                </div>
-                                <div class="col-md-3 col-xs-6 md-margin-b-30">
-                                    <h5>telephone/Fax</h5>
-                                    (021)2316405-08
-									/(021)3810104
-                                </div>
-                                <div class="col-md-3 col-xs-6">
-                                    <h5>Email</h5>
-                                    <a href="mailto:#">customerlion@liongroup.com</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--// end row -->
-                </div>
-            </div>
-        </div>
+    </div>
+  </div>
+
+  <div class="main main-raised">
+    <div class="section section-signup">
+      <div class="container">
+        <div id="data"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer" data-background-color="black">
+    <div class="container">
+      <div class="copyright float-left">
+        &copy;
+        <script>
+          document.write(new Date().getFullYear())
+        </script>, made with <i class="material-icons">favorite</i> by
+        <a href="https://www.creative-tim.com" target="_blank">AllTimProject</a> for a better web.
+      </div>
+    </div>
+  </footer>
+  <!--   Core JS Files   -->
+  <script src="<?= base_url().'assets_user/js/core/popper.min.js' ?>" type="text/javascript"></script>
+  <script src="<?= base_url().'assets_user/js/core/bootstrap-material-design.min.js' ?>" type="text/javascript"></script>
+  <script src="<?= base_url().'assets_user/js/plugins/moment.min.js' ?>"></script>
+  <script src="<?= base_url().'assets_user/js/material-kit.js' ?>" type="text/javascript"></script>
+  <script>
+
+    function scrollToDownload() {
+      if ($('.section-download').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('.section-download').offset().top
+        }, 1000);
+      }
+    }
+
+    $(document).ready(function(){
+      $('#data').load('<?= base_url('home/term_condition') ?>');
+
+      $('.form-search').submit(function(){
+        var search = $('#search-booking').val();
+        var html = '';
+
+        if(search == '') {
+          alert('Harap masukkan Kode Booking');
+        } else {
+          $("html, body").animate({
+            scrollTop: $('#data').offset().top
+          }, 1000);
+
+          $.ajax({
+            url: '<?= base_url('home/cari_booking/') ?>'+search,
+            type: 'GET',
+            dataType: 'JSON',
+            success: function(data){
+              if(data.data == '')
+              {
+                alert('Data tidak ditemukan');
+              } else {
+
+
+                  html += '<h3>Kode Booking : '+data.booking+'</h3>';
+                  html += '<h4 class="title"> Pessenger Detail </h4>';
+                  html += '<table class="table table-responsive table-hover">';
+                  html += '<thead><tr style="background-color: aqua"><th>Pessenger Type</th><th>Pessenger Name</th><th>Ticket Number</th></tr></thead>';
+                  html += '<tbody>';
+                  $.each(data.pessenger, function(k, v){
+                    html += '<tr>';
+                    html += '<td>'+v.tipe_pessenger+'</td>';
+                    html += '<td>'+v.nama_pessenger+'</td>';
+                    html += '<td>'+v.no_tiket+'</td>';
+                    html += '</tr>';
+                  });
+                  html += '</tbody></table>';
+
+
+                html += '<h4 class="title"> Penerbangan Detail </h4>';
+                html += '<table class="table table-responsive table-hover">';
+                html += '<thead><tr style="background-color: aqua"><th>Flight</th><th>Departure</th><th>Arrival</th><th>Class</th><th>Status</th></tr></thead>';
+                html += '<tbody>';
+
+                $.each(data.penerbangan, function(key1, value1){
+                  html += '<tr>';
+                  html += '<td>'+value1.no_penerbangan+'</td>';
+                  html += '<td>'+value1.kota_asal+'<br/>'+value1.tgl_keberangkatan+'</td>';
+                  html += '<td>'+value1.kota_tujuan+'<br/>'+value1.tgl_tiba+'</td>';
+                  html += '<td>'+value1.class+'</td>';
+                  html += '<td>'+value1.status+'</td>';
+                  html += '</tr>';
+                });
+
+                html += '</tbody></table>';
+
+                html += '<div class="float-right">';
+                html += '<a href="<?= base_url('home/form_refund/') ?>'+data.booking+'" id="refund" class="btn btn-md btn-danger"><strong>Refund</strong></a> ';
+                html += '<button type="button" class="btn btn-md btn-success"><strong>Reschedul<strong></button>';
+                html += '</div>';
+
+                $('.form-search')[0].reset();
+                $('#data').html(html);
+              }
+            }, error: function(){
+              alert('Data tidak ditemukan');
+            }
+          });
+        }
+        return false;
+      });
+
+      $(document).on('click', '#refund', function(){
+        var href = $(this).attr('href');
+        $.get(href, function(data){
+          $('#data').html(data);
+
+          $("html, body").animate({
+            scrollTop: $('#data').offset().top
+          }, 1000);
+        });
+        return false;
+      });
+    });
+  </script>
+</body>
+
+</html>
