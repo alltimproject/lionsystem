@@ -9,10 +9,13 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= base_url().'assets/font-awesome/css/font-awesome.min.css' ?>">
 
+  <link rel="stylesheet" href="<?= base_url().'assets/dataTables/dataTables.bootstrap4.min.css' ?>">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url().'assets/css/adminlte.min.css' ?>">
   <!-- iCheck -->
   <link rel="stylesheet" href="<?= base_url().'assets/css/blue.css' ?>">
+
+  <link rel="stylesheet" href="<?= base_url().'assets/css/animate.css' ?>">
   <!-- Morris chart -->
   <link rel="stylesheet" href="<?= base_url().'assets/css/morris.css' ?>">
   <!-- jvectormap -->
@@ -161,7 +164,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a href="#" class="d-block"><?= $this->session->userdata('email') ?> </a>
+          <a href="#" class="d-block"><span class="fa fa-user fa-2x "></span> <?= $this->session->userdata('email') ?> </a>
         </div>
       </div>
 
@@ -175,66 +178,53 @@
              <i class="nav-icon fa fa-dashboard"></i>
              <p>
                Dashboard
-               <span class="badge badge-info right">2</span>
-             </p>
-           </a>
-         </li>
-         <li class="nav-item">
-           <a href="pages/calendar.html" class="nav-link">
-             <i class="nav-icon fa fa-circle-o"></i>
-             <p>
-               Rescedule
-               <span class="badge badge-info right">2</span>
-             </p>
-           </a>
-         </li>
-         <li class="nav-item">
-           <a href="pages/calendar.html" class="nav-link">
-             <i class="nav-icon fa fa-circle-o"></i>
-             <p>
-               Refund
-               <span class="badge badge-info right">2</span>
+               <span class="badge badge-info right"></span>
              </p>
            </a>
          </li>
 
-          <li class="nav-header">DATA</li>
+          <li class="nav-header">REFUND</li>
           <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
-              <i class="nav-icon fa fa-calendar"></i>
-              <p>
-                Data Booking
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
-              <i class="nav-icon fa fa-calendar"></i>
-              <p>
-                Data Tiket
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
-              <i class="nav-icon fa fa-calendar"></i>
-              <p>
-                Data Refund
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
-              <i class="nav-icon fa fa-calendar"></i>
-              <p>
-                Data Rescedule
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
+            <li class="nav-item">
+              <a href="<?= base_url('adm/refund') ?>" class="nav-link">
+                <i class="nav-icon fa fa-circle-o"></i>
+                <p>
+                  Data Refund
+                  <span class="badge badge-info right">2</span>
+                </p>
+              </a>
+            </li>
+
+
+            <li class="nav-header">RESCHEDULE</li>
+            <li class="nav-item">
+              <li class="nav-item">
+                <a href="<?= base_url('adm/refund') ?>" class="nav-link">
+                  <i class="nav-icon fa fa-circle-o"></i>
+                  <p>
+                    Data Reschedule
+                    <span class="badge badge-info right">2</span>
+                  </p>
+                </a>
+              </li>
+
+
+              <li class="nav-item" style="padding-top:80px;">
+                <li class="nav-item bg-danger">
+                  <a href="<?= base_url('adm/refund') ?>" class="nav-link">
+                    <i class="nav-icon fa fa-circle-o"></i>
+                    <p>
+                      LOGOUT
+
+                    </p>
+                  </a>
+                </li>
+
+
+
+
+
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

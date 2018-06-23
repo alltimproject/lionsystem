@@ -56,7 +56,7 @@ class Home extends CI_Controller{
       'refund_telepon' => $this->input->post('refund_telepon'),
       'refund_email' => $this->input->post('refund_email'),
       'total_refund' => $this->input->post('total_refund'),
-      'refund_status' => 'On Proses'
+      'refund_status' => 'onproses'
     );
 
     foreach($post['no_tiket'] AS $key => $val)
