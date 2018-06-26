@@ -8,15 +8,30 @@ foreach ($checkdataid as $key) {
   $refund_telepon = $key->refund_telepon;
   $refund_total   = $key->total_refund;
   $refund_alamat  = $key->refund_alamat;
+<<<<<<< HEAD
   $email          = $key->email;
 }
 
  ?>
+=======
+}
+
+ foreach ($datauser as $key ) {
+   $email_user    = $key->email;
+   $nama_depan    = $key->nama_depan;
+   $nama_belakang = $key->nama_belakang;
+ }
+  ?>
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
+<<<<<<< HEAD
       <div class="container">
+=======
+      <div class="container-fluid">
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Check Data Refund</h1>
@@ -25,7 +40,11 @@ foreach ($checkdataid as $key) {
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?= base_url().'adm/dashboard' ?>">Dashboarrd</a></li>
+<<<<<<< HEAD
               <li class="breadcrumb-item active">Data Refund <b class="text-danger"><?= $kd_booking ?></b> </li>
+=======
+              <li class="breadcrumb-item active">Data Refund <b class="text-danger"><?= $no_refund ?></b> </li>
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -39,7 +58,11 @@ foreach ($checkdataid as $key) {
 
 
     <div class="row animated bounceInRight ">
+<<<<<<< HEAD
       <div class="container">
+=======
+      <div class="container-fluid">
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
         <div class="card">
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-widget="remove">
@@ -47,9 +70,15 @@ foreach ($checkdataid as $key) {
             </button>
           </div>
 
+<<<<<<< HEAD
           <div class="container">
             <div class="col">
               <a href="javascript:void(0);" id="validasi_show_penerbangan" data-id="<?= $kd_booking ?>" class="btn btn-info btn-sm"><i class="fa fa-fighter-jet"> Lihat Penerbangan</i> </a>
+=======
+          <div class="container-fluid">
+            <div class="col">
+              <a href="javascript:void(0);" id="validasi_show_penerbangan" data-id="<?= $no_refund ?>" class="btn btn-info btn-sm"><i class="fa fa-fighter-jet"> Lihat Penerbangan</i> </a>
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
             </div>
             <div class="d-flex justify-content-between">
               <h3 class="card-title"></h3>
@@ -57,6 +86,7 @@ foreach ($checkdataid as $key) {
             </div>
             <br>
             <h5 class="card-title text-center bg-danger">DAFTAR TIKET</h5>
+<<<<<<< HEAD
           <form action="<?= base_url('adm/refund/actionrefund/') ?>" method="post" >
           <table class="table table-striped table-hover">
             <thead>
@@ -65,12 +95,23 @@ foreach ($checkdataid as $key) {
               <th style="font-size:80%">Nama Penumpang</th>
               <th style="font-size:80%">Tanggal Lahir</th>
               <th style="font-size:80%">Tipe Pessenger</th>
+=======
+          <form action="<?= base_url('adm/refund/actionrefund') ?>" method="post" >
+          <table class="table table-striped table-hover">
+            <thead>
+            <tr class="">
+              <th style="font-size:100%">No Tiket</th>
+              <th style="font-size:100%">Nama Penumpang</th>
+              <th style="font-size:100%">Tanggal Lahir</th>
+              <th style="font-size:100%">Tipe Pessenger</th>
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
             </tr>
             </thead>
             <tbody>
               <?php
               foreach($checkdataid as $key ): ?>
               <tr>
+<<<<<<< HEAD
                 <td style="font-size:70%"><?= $key->no_tiket ?></td>
                 <td style="font-size:70%"><?= $key->nama_pessenger ?></td>
                 <td style="font-size:70%"><?= $key->tgl_lahir ?></td>
@@ -83,6 +124,16 @@ foreach ($checkdataid as $key) {
             </tbody>
           </table>
 
+=======
+                <td style="font-size:90%"><?= $key->no_tiket ?></td>
+                <td style="font-size:90%"><?= $key->nama_pessenger ?></td>
+                <td style="font-size:90%"><?= $key->tgl_lahir ?></td>
+                <td style="font-size:90%"><?= $key->no_tiket ?></td>
+              </tr>
+            <?php endforeach ?>
+            </tbody>
+          </table>
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
             <div class="row" id="show_data_penerbangan">
 
               <div class="col-md-12">
@@ -91,6 +142,7 @@ foreach ($checkdataid as $key) {
                   <thead>
                   <tr>
 
+<<<<<<< HEAD
                     <th style="font-size:60%">No. Penerbangan</th>
                     <th style="font-size:60%">Asal</th>
                     <th style="font-size:60%">Tujuan</th>
@@ -100,6 +152,16 @@ foreach ($checkdataid as $key) {
                     <th style="font-size:60%">Class</th>
                     <th style="font-size:60%">Harga Tiket</th>
                     <th style="font-size:60%">Provider</th>
+=======
+                    <th style="font-size:90%">No. Penerbangan</th>
+                    <th style="font-size:90%">Asal</th>
+                    <th style="font-size:90%">Tujuan</th>
+                    <th style="font-size:90%">Tanggal Berangkatan</th>
+                    <th style="font-size:90%">Tanggal Tiba</th>
+                    <th style="font-size:90%">Class</th>
+                    <th style="font-size:90%">Harga Tiket</th>
+                    <th style="font-size:90%">Provider</th>
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
                   </thead>
                   <tbody id="isi_data_penerbangan"></tbody>
                   </tr>
@@ -108,6 +170,7 @@ foreach ($checkdataid as $key) {
             </div><!-- row -->
           </div>
 
+<<<<<<< HEAD
           <input type="hidden" name="kode_booking" value="<?= $kd_booking ?>">
 
           <div class="row" align="center" style="padding-top:60px; padding-bottom:20px;">
@@ -119,6 +182,99 @@ foreach ($checkdataid as $key) {
             </div>
           </div>
         </form>
+=======
+          <!-- refund cancel -->
+          <div class="row" align="center" style="padding-top:60px; padding-bottom:20px;">
+            <div class="col-md-6">
+              <input type="hidden" name="no_refund" value="<?= $no_refund ?>">
+              <input type="hidden" name="namalengkap" value="<?= $nama_depan.' '.$nama_belakang ?>">
+              <input type="hidden" name="email" value="<?= $email_user ?>">
+              <input type="submit" name="cancelrefund" value="BATAL REFUND" onclick="return confirm('Apakah ingin membatalkan refund ?')" class="btn btn-warning" style="width:50%">
+            </div>
+          </form>
+            <div class="col-md-6">
+              <?php
+
+              if($jumlahdatarefund == $jumlahdatapessenger && $jumlahrefunddetail == $jumlahdetailpener){ ?>
+                <form action="<?= base_url('adm/refund/confirm_match_updatebooking') ?>" method="post">
+                  <?php
+                  //DATA BOOKING
+                  foreach ($data_booking as $key ):?>
+                  <input type="text" name="data_kd_booking" value="<?= $key->kd_booking ?>">
+                  <input type="text" name="data_gelar" value="<?= $key->gelar ?>">
+                  <input type="text" name="data_alamat" value="<?= $key->alamat ?>">
+                  <input type="text" name="data_telp" value="<?= $key->no_tlp ?>">
+                  <?php endforeach; ?>
+
+
+                  <input type="hidden" name="kd_booking" value="<?= $kd_booking ?>">
+                  <input type="hidden" name="total" value="<?= $refund_total ?>">
+                  <input type="hidden" name="no_refund" value="<?= $no_refund ?>">
+                  <input type="hidden" name="namalengkap" value="<?= $nama_depan.' '.$nama_belakang ?>">
+                  <input type="hidden" name="email" value="<?= $email_user ?>">
+                  <input type="submit" name="confirmrefund" class="btn btn-success" value="KONFIRMASI REFUND" onclick="return confirm('Anda yaking ingin Mengkonfirmasi tiket ini ?')" style="width:50%" >
+                </form>
+              <?php }else if($jumlahdatarefund < $jumlahdatapessenger && $jumlahrefunddetail == $jumlahdetailpener ){ ?>
+                <form action="<?= base_url('adm/refund/confirm_matchpenerbangan_updatebooking') ?>" method="post">
+
+                  <?php
+                  //DATA PENERBANGAN
+                  foreach($getpenerbanganRefund->result() as $refunPener): ?>
+                  <input type="text" name="no_refund_penerbangan[]" value="<?= $refunPener->no_refund ?>"><br/>
+                  <input type="text" name="no_penerbangan[]" value="<?= $refunPener->no_penerbangan ?>"><br>
+                  <?php endforeach; ?>
+
+                  <?php
+                  //DATA TIKET REFUND
+                  foreach($gettiketRefund->result() as $tiket): ?>
+                  <input type="hidden" name="no_tiket[]" value="<?= $tiket->no_tiket ?>">
+                  <?php endforeach;  ?>
+
+                  <input type="hidden" name="kd_booking" value="<?= $kd_booking ?>">
+                  <input type="hidden" name="no_refund" value="<?= $no_refund ?>">
+                  <input type="hidden" name="nama_depan" value="<?= $nama_depan ?>">
+                  <input type="hidden" name="nama_belakang" value="<?= $nama_belakang ?>">
+                  <input type="hidden" name="namalengkap" value="<?= $nama_depan.' '.$nama_belakang ?>">
+                  <input type="hidden" name="email" value="<?= $email_user ?>">
+                  <input type="submit" name="confirmrefundmatchpener" class="btn btn-info" value="KONFIRMASI REFUND" onclick="return confirm('Anda yaking ingin Mengkonfirmasi tiket ini ?')" style="width:50%" >
+                </form>
+              <?php }else if($jumlahdatarefund == $jumlahdatapessenger && $jumlahrefunddetail < $jumlahdetailpener){ ?>
+                <form action="<?= base_url('adm/refund/confirm_matchpessenger_updatebooking') ?>" method="post">
+
+                  <?php foreach($getpenerbanganRefund->result() as $refunPener): ?>
+                  <input type="text" name="no_refund_penerbangan[]" value="<?= $refunPener->no_refund ?>"><br/>
+                  <input type="text" name="no_penerbangan[]" value="<?= $refunPener->no_penerbangan ?>"><br>
+
+
+                  <!-- not array -->
+                  <input type="text" name="no_pener" value="<?= $refunPener->no_penerbangan ?>"><br>
+                  <?php endforeach; ?>
+
+                  <?php foreach($gettiketRefund->result() as $tiket): ?>
+                  <input type="hidden" name="no_tiket[]" value="<?= $tiket->no_tiket ?>">
+                  <?php endforeach;  ?>
+
+
+                  <input type="hidden" name="kd_booking" value="<?= $kd_booking ?>">
+                  <input type="hidden" name="no_refund" value="<?= $no_refund ?>">
+                  <input type="hidden" name="namalengkap" value="<?= $nama_depan.' '.$nama_belakang ?>">
+                  <input type="hidden" name="nama_belakang" value="<?= $nama_belakang ?>">
+                  <input type="hidden" name="nama_depan" value="<?= $nama_depan ?>">
+                  <input type="hidden" name="email" value="<?= $email_user ?>">
+                  <input type="submit" name="confirmrefund" class="btn btn-warning" value="KONFIRMASI REFUND" onclick="return confirm('Anda yaking ingin Mengkonfirmasi tiket ini ?')" style="width:50%" >
+                </form>
+
+              <?php } ?>
+            </div>
+          </div>
+
+
+          <?php echo 'data refund: '.$jumlahdatarefund.'</br>' ?>
+          <?php echo 'data pessenger: '.$jumlahdatapessenger.'</br>' ?>
+          <?php echo 'data refund detail: '.$jumlahrefunddetail.'</br>' ?>
+          <?php echo 'data detail penerbangan: '. $jumlahdetailpener.'</br>' ?>
+
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
 
 
         </div>
@@ -128,7 +284,11 @@ foreach ($checkdataid as $key) {
 
 
       <div class="row">
+<<<<<<< HEAD
         <div class="container">
+=======
+        <div class="container-fluid">
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
           <div class="callout callout-danger">
               <h5><i class="fa fa-info"></i> Note:</h5>
               Periksa kembali data data refund dan data pemesanan awal, silahkan klik <b>validasi</b> untuk melihat data pemesanan kode booking.
@@ -287,17 +447,26 @@ foreach ($checkdataid as $key) {
 
       $('#validasi_show_penerbangan').on('click', function() {
          $('#show_data_penerbangan').show().addClass('animated fadeInUp');
+<<<<<<< HEAD
          var kd_booking = $(this).attr('data-id');
+=======
+         var no_refund = $(this).attr('data-id');
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
          var html = '';
          var i;
          $.ajax({
            type: 'ajax',
+<<<<<<< HEAD
            url: '<?= base_url() ?>adm/dashboard/getRefundPenerbangan/'+kd_booking,
+=======
+           url: '<?= base_url() ?>adm/dashboard/getRefundPenerbangan/'+no_refund,
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
            async: false,
            dataType: 'json',
            success: function(data){
              for(i=0; i<data.length; i++){
                html += '<tr>'+
+<<<<<<< HEAD
                        '<td style="font-size:60%">'+data[i].no_penerbangan+'</td>'+
                        '<td style="font-size:60%">'+data[i].kota_asal+'</td>'+
                        '<td style="font-size:60%">'+data[i].kota_tujuan+'</td>'+
@@ -307,6 +476,16 @@ foreach ($checkdataid as $key) {
                        '<td style="font-size:60%">'+data[i].class+'</td>'+
                        '<td style="font-size:60%">'+data[i].harga_tiket+'</td>'+
                        '<td style="font-size:60%">'+data[i].provider+'</td>'+
+=======
+                       '<td style="font-size:90%">'+data[i].no_penerbangan+'</td>'+
+                       '<td style="font-size:90%">'+data[i].kota_asal+'</td>'+
+                       '<td style="font-size:90%">'+data[i].kota_tujuan+'</td>'+
+                       '<td style="font-size:90%">'+data[i].tgl_keberangkatan+'</td>'+
+                       '<td style="font-size:90%">'+data[i].tgl_tiba+'</td>'+
+                       '<td style="font-size:90%">'+data[i].class+'</td>'+
+                       '<td style="font-size:90%">'+data[i].harga_tiket+'</td>'+
+                       '<td style="font-size:90%">'+data[i].provider+'</td>'+
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
                        '</tr>';
              }
             $('#isi_data_penerbangan').html(html);

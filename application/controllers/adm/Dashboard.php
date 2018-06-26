@@ -16,15 +16,24 @@ class Dashboard extends CI_Controller{
    $data['title'] = 'Dashboard';
    $this->load->view('admin/include/header', $data);
 
+<<<<<<< HEAD
    $data['getkodebooking'] = $this->m_dashboard->getKodebooking();
+=======
+   $data['getnorefund'] = $this->m_dashboard->getrefund();
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
    $this->load->view('admin/v_dashboard', $data);
    $this->load->view('admin/include/footer');
+  }
+
+  function getrefund()
+  {
+    $data = $this->m_dashboard->getrefund();
+    echo json_encode($data);
   }
 
   function getbooking()
   {
     $data = $this->m_dashboard->getbooking();
-
     echo json_encode($data);
   }
 
@@ -55,17 +64,57 @@ class Dashboard extends CI_Controller{
     echo json_encode($data);
   }
 
+<<<<<<< HEAD
   function checkdata($kd_booking)
+=======
+  function checkdata($norefund)
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
   {
 
       $data['title'] = 'Check Data';
       $this->load->view('admin/include/header', $data);
 
       $where = array(
+<<<<<<< HEAD
         'tb_booking.kd_booking' => $kd_booking
       );
       $data['checkdataid'] = $this->m_refund->get_refund_tiket_byBooking($where);
 
+=======
+        'tb_refund_pessenger.no_refund' => $norefund
+      );
+      $data['checkdataid']  = $this->m_dashboard->getrefundtiket($where);
+
+
+
+      //get tiket refund
+       $data['gettiketRefund']       = $this->m_refund->getTiketRefund($norefund);
+
+
+      //get rows refund pessenger to first pessenger----------------------------------------
+      foreach($this->m_refund->getwhererefund_pessenger($where)->result() as $key){
+        $kd_booking = $key->kd_booking;
+      }
+      $where2 = array('kd_booking' => $kd_booking);
+      //------------------------------------------------------------------------------------
+      $data['data_booking']        = $this->m_dashboard->getdatabooking($where2)->result();
+      $data['datauser']            = $this->m_dashboard->getemailUser($kd_booking);
+      $data['jumlahdatapessenger'] = $this->m_refund->getpessenger($where2)->num_rows();
+      $data['jumlahdatarefund']    = $this->m_refund->getwhererefund($norefund)->num_rows();
+      //-------------------------------------------------------------------------------------
+      //get refund detail to detail penerbangan ---------------------------------------------
+      $data['jumlahrefunddetail']  = $this->m_refund->getrefunddetail($norefund)->num_rows();
+      $data['jumlahdetailpener']   = $this->m_refund->getdetailpener($kd_booking)->num_rows();
+      //-------------------------------------------------------------------------------------
+
+
+      //get penerbangan refund
+      $where3 = array(
+        'tb_detail.kd_booking' => $kd_booking
+      );
+       $data['getpenerbanganRefund'] = $this->m_refund->getpenerbanganRefund($norefund, $where3);
+      //-------------------------------------------------------------------------------------
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
       $this->load->view('admin/v_checkdata', $data);
 
       $this->load->view('admin/include/footer');
@@ -73,12 +122,21 @@ class Dashboard extends CI_Controller{
 
   }
 
+<<<<<<< HEAD
   function getRefundPenerbangan($kd_booking)
   {
     $where = array(
       'kd_booking' => $kd_booking
     );
     $data = $this->m_refund->check_penerbangan_kdbooking($where);
+=======
+  function getRefundPenerbangan($norefund)
+  {
+    $where = array(
+      'tb_refund_detail.no_refund' => $norefund
+    );
+    $data = $this->m_refund->check_penerbangan_norefund($where);
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
     echo json_encode($data);
   }
 
@@ -91,6 +149,7 @@ class Dashboard extends CI_Controller{
     echo json_encode($data);
   }
 
+<<<<<<< HEAD
   function showrefund($kd_booking)
   {
     $where = array(
@@ -100,6 +159,19 @@ class Dashboard extends CI_Controller{
     $data['jumlahdata'] = $this->m_refund->check_refund_tiket($where)->num_rows();
     $data['kd_booking'] = $kd_booking;
     echo json_encode($data);
+=======
+  function showrefund($norefund)
+  {
+
+    $where = array(
+      'tb_refund_pessenger.no_refund' => $norefund
+    );
+    $data['data'] = $this->m_refund->check_refund_tiket($where)->result();
+    $data['norefund'] = $norefund;
+    echo json_encode($data);
+
+
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
   }
 
   function showallrefund()

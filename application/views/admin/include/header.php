@@ -183,7 +183,11 @@
            </a>
          </li>
 
+<<<<<<< HEAD
           <li class="nav-header">DATA</li>
+=======
+          <li class="nav-header">REFUND</li>
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
           <li class="nav-item">
             <li class="nav-item">
               <a href="<?= base_url('adm/refund') ?>" class="nav-link">
@@ -195,6 +199,7 @@
               </a>
             </li>
 
+<<<<<<< HEAD
             <li class="nav-item">
               <a href="<?= base_url('adm/rechedule') ?>" class="nav-link">
                 <i class="nav-icon fa fa-circle-o"></i>
@@ -204,6 +209,33 @@
                 </p>
               </a>
             </li>
+=======
+
+            <li class="nav-header">RESCHEDULE</li>
+            <li class="nav-item">
+              <li class="nav-item">
+                <a href="<?= base_url('adm/refund') ?>" class="nav-link">
+                  <i class="nav-icon fa fa-circle-o"></i>
+                  <p>
+                    Data Reschedule
+                    <span class="badge badge-info right">2</span>
+                  </p>
+                </a>
+              </li>
+
+
+              <li class="nav-item" style="padding-top:80px;">
+                <li class="nav-item bg-danger">
+                  <a href="<?= base_url('adm/refund') ?>" class="nav-link">
+                    <i class="nav-icon fa fa-circle-o"></i>
+                    <p>
+                      LOGOUT
+
+                    </p>
+                  </a>
+                </li>
+
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
 
 
 
