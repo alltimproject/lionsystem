@@ -9,6 +9,9 @@ class M_dashboard extends CI_Model{
     $this->db->select('tb_booking.kd_booking,
                        tb_booking.tgl_booking,
                        tb_booking.tipe_booking,
+                       tb_booking.nama_depan,
+                       tb_booking.nama_belakang,
+                       tb_booking.no_tlp,
                        tb_booking.status
                        ');
     $this->db->from('tb_booking');
@@ -23,6 +26,26 @@ class M_dashboard extends CI_Model{
     $this->db->where($kd_booking);
 
    return $this->db->get()->result();
+  }
+
+  function get_penerbangan_id($where)
+  {
+    $this->db->select('*');
+    $this->db->from('tb_detail');
+    $this->db->join('tb_booking','tb_booking.kd_booking = tb_detail.kd_booking', 'left');
+    $this->db->join('tb_penerbangan', 'tb_penerbangan.no_penerbangan = tb_detail.no_penerbangan', 'left');
+    $this->db->where($where);
+    return $this->db->get()->result();
+  }
+
+  function getKodebooking()
+  {
+    $this->db->distinct('kd_booking');
+    $this->db->select('kd_booking');
+    $this->db->from('tb_pessenger');
+    $this->db->join('tb_refund', 'tb_refund.no_tiket = tb_pessenger.no_tiket');
+    $this->db->where('refund_status','on proses');
+    return $this->db->get()->result();
   }
 
 }

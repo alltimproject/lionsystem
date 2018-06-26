@@ -23,12 +23,21 @@
 
 <script src="<?= base_url().'assets/js/morris.min.js' ?>"></script>
 
+<script src="<?= base_url().'assets/js/wow.min.js' ?>"></script>
 
+<script src="<?= base_url().'assets/dataTables/jquery.dataTables.min.js' ?>"></script>
+<script src="<?= base_url().'assets/dataTables/dataTables.bootstrap4.min.js' ?>"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url().'assets/js/adminlte.js' ?>"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url().'assets/js/demo.js' ?>"></script>
+<script type="text/javascript">
+$(function() {
+  new WOW().init();
+});
+
+</script>
 
 </body>
 </html>
