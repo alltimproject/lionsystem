@@ -103,11 +103,8 @@
 
 
     <div class="row">
-      <div class="col-md-6">
-        content
-      </div>
-      <div class="col-md-6">
-        <h6 class="text-right">hallo</h6>
+      <div class="col-md-12">
+      <button class="btn btn-info" onclick="window.print()">PRINT</button>
       </div>
     </div>
 
@@ -120,3 +117,9 @@
 	</div>
 </body>
 </html>
+<script type="text/javascript">
+		function print()
+		{
+			window.print();
+		}
+</script>

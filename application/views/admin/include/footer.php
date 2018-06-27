@@ -36,6 +36,39 @@
 $(function() {
   new WOW().init();
 });
+  $('#note').slideDown('slow').delay(4000).slideUp('slow');
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    loaddataToday();
+
+    setInterval(function(){
+        loaddataToday();
+    },10000);
+
+      function loaddataToday()
+      {
+        $.ajax({
+          type: 'ajax',
+          url: '<?= base_url() ?>adm/dashboard/get_refund_today',
+          dataType: 'json',
+          success:function(data){
+            var htmljumlah = '';
+            htmljumlah = data.jumlahdata_today;
+            $('#notif_jumlahrefund').html(htmljumlah);
+          }
+        });
+      }
+
+
+      $('#tampiltoday').on('click', function(){
+        $('#ModaldataToday').modal('show');
+      });
+
+
+
+  });
+
 
 </script>
 

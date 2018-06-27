@@ -46,7 +46,7 @@ class Home extends CI_Controller{
     $penerbangan = array();
     // $total_post = count($post['no_tiket']);
 
-    $kode = "COBA1";
+    $kode = "COBA3";
 
     $data = array(
       'no_refund' => $kode,

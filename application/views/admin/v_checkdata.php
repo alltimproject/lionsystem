@@ -124,10 +124,10 @@ foreach ($checkdataid as $key) {
                   <?php
                   //DATA BOOKING
                   foreach ($data_booking as $key ):?>
-                  <input type="text" name="data_kd_booking" value="<?= $key->kd_booking ?>">
-                  <input type="text" name="data_gelar" value="<?= $key->gelar ?>">
-                  <input type="text" name="data_alamat" value="<?= $key->alamat ?>">
-                  <input type="text" name="data_telp" value="<?= $key->no_tlp ?>">
+                  <input type="hidden" name="data_kd_booking" value="<?= $key->kd_booking ?>">
+                  <input type="hidden" name="data_gelar" value="<?= $key->gelar ?>">
+                  <input type="hidden" name="data_alamat" value="<?= $key->alamat ?>">
+                  <input type="hidden" name="data_telp" value="<?= $key->no_tlp ?>">
                   <?php endforeach; ?>
 
 
@@ -140,12 +140,21 @@ foreach ($checkdataid as $key) {
                 </form>
               <?php }else if($jumlahdatarefund < $jumlahdatapessenger && $jumlahrefunddetail == $jumlahdetailpener ){ ?>
                 <form action="<?= base_url('adm/refund/confirm_matchpenerbangan_updatebooking') ?>" method="post">
+                  <?php
+                  //DATA BOOKING
+                  foreach ($data_booking as $key ):?>
+                  <input type="hidden" name="data_gelar" value="<?= $key->gelar ?>">
+                  <input type="hidden" name="data_alamat" value="<?= $key->alamat ?>">
+                  <input type="hidden" name="data_telp" value="<?= $key->no_tlp ?>">
+                  <input type="hidden" name="data_tipebooking" value="<?= $key->tipe_booking ?>">
+                  <?php endforeach; ?>
+
 
                   <?php
                   //DATA PENERBANGAN
                   foreach($getpenerbanganRefund->result() as $refunPener): ?>
-                  <input type="text" name="no_refund_penerbangan[]" value="<?= $refunPener->no_refund ?>"><br/>
-                  <input type="text" name="no_penerbangan[]" value="<?= $refunPener->no_penerbangan ?>"><br>
+                  <input type="hidden" name="no_refund_penerbangan[]" value="<?= $refunPener->no_refund ?>"><br/>
+                  <input type="hidden" name="no_penerbangan[]" value="<?= $refunPener->no_penerbangan ?>"><br>
                   <?php endforeach; ?>
 
                   <?php
@@ -154,6 +163,8 @@ foreach ($checkdataid as $key) {
                   <input type="hidden" name="no_tiket[]" value="<?= $tiket->no_tiket ?>">
                   <?php endforeach;  ?>
 
+                  <!-- -->
+                  <input type="hidden" name="total" value="<?= $refund_total ?>">
                   <input type="hidden" name="kd_booking" value="<?= $kd_booking ?>">
                   <input type="hidden" name="no_refund" value="<?= $no_refund ?>">
                   <input type="hidden" name="nama_depan" value="<?= $nama_depan ?>">
@@ -164,6 +175,15 @@ foreach ($checkdataid as $key) {
                 </form>
               <?php }else if($jumlahdatarefund == $jumlahdatapessenger && $jumlahrefunddetail < $jumlahdetailpener){ ?>
                 <form action="<?= base_url('adm/refund/confirm_matchpessenger_updatebooking') ?>" method="post">
+                  <?php
+                  //DATA BOOKING
+                  foreach ($data_booking as $key ):?>
+                  <input type="hidden" name="data_gelar" value="<?= $key->gelar ?>">
+                  <input type="hidden" name="data_alamat" value="<?= $key->alamat ?>">
+                  <input type="hidden" name="data_telp" value="<?= $key->no_tlp ?>">
+                  <input type="hidden" name="data_tipebooking" value="<?= $key->tipe_booking ?>">
+                  <?php endforeach; ?>
+
 
                   <?php foreach($getpenerbanganRefund->result() as $refunPener): ?>
                   <input type="text" name="no_refund_penerbangan[]" value="<?= $refunPener->no_refund ?>"><br/>
@@ -178,7 +198,7 @@ foreach ($checkdataid as $key) {
                   <input type="hidden" name="no_tiket[]" value="<?= $tiket->no_tiket ?>">
                   <?php endforeach;  ?>
 
-
+                  <input type="hidden" name="total" value="<?= $refund_total ?>">
                   <input type="hidden" name="kd_booking" value="<?= $kd_booking ?>">
                   <input type="hidden" name="no_refund" value="<?= $no_refund ?>">
                   <input type="hidden" name="namalengkap" value="<?= $nama_depan.' '.$nama_belakang ?>">
@@ -193,10 +213,10 @@ foreach ($checkdataid as $key) {
           </div>
 
 
-          <?php echo 'data refund: '.$jumlahdatarefund.'</br>' ?>
+          <!-- <?php echo 'data refund: '.$jumlahdatarefund.'</br>' ?>
           <?php echo 'data pessenger: '.$jumlahdatapessenger.'</br>' ?>
           <?php echo 'data refund detail: '.$jumlahrefunddetail.'</br>' ?>
-          <?php echo 'data detail penerbangan: '. $jumlahdetailpener.'</br>' ?>
+          <?php echo 'data detail penerbangan: '. $jumlahdetailpener.'</br>' ?> -->
 
 
 

@@ -2,6 +2,28 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_refund extends CI_Model{
+  function get_refund()
+  {
+    //parsing json encode
+    $this->db->select('*');
+    $this->db->from('tb_refund');
+    $this->db->where('refund_status', 'onproses');
+    return $this->db->get();
+  }
+  function get_refund_verify()
+  {
+    //parsing json encode
+    $this->db->select('*');
+    $this->db->from('tb_refund');
+    $this->db->where('refund_status','verify');
+    return $this->db->get();
+  }
+  function get_refund_today()
+  {
+    $query = $this->db->query("SELECT NOW(), no_refund FROM tb_refund WHERE refund_status = 'onproses' ");
+    return $query;
+  }
+
   //num rows ----
   function getwhererefund($where)
   {
@@ -163,6 +185,13 @@ class M_refund extends CI_Model{
 //----------------------------------------------------------
   function confirm_matchpenerbangan_updatebooking()
   {
+    //data booking
+    $data_gelar       = $this->input->post('data_gelar');
+    $data_alamat      = $this->input->post('data_alamat');
+    $data_telp        = $this->input->post('data_telp');
+    $data_tipebooking = $this->input->post('data_tipebooking');
+    //------------
+
     $no_refund     = $this->input->post('no_refund');
     $nama_depan    = $this->input->post('nama_depan');
     $nama_belakang = $this->input->post('nama_belakang');
@@ -172,6 +201,10 @@ class M_refund extends CI_Model{
     $data = array(
       'kd_booking'     => $no_refund,
       'status'         => 'RFN',
+      'tipe_booking'   => $data_tipebooking,
+      'gelar'          => $data_gelar,
+      'alamat'         => $data_alamat,
+      'no_tlp'         => $data_telp,
       'nama_depan'     => $nama_depan,
       'nama_belakang'  => $nama_belakang,
       'email'          => $email
@@ -182,23 +215,6 @@ class M_refund extends CI_Model{
 
   function insertdetail()
   {
-    // $norefund_pener = $this->input->post('no_refund_penerbangan');
-    // $no_penerbangan = $this->input->post('no_penerbangan');
-    //
-    // echo '<pre>';
-    // print_r($norefund_pener);
-    // print_r($no_penerbangan);
-    // echo '</pre>';
-    //
-    // $result = array();
-    // foreach($norefund_pener as $key => $val){
-    //   $result[] = array(
-    //     'kd_booking'     => $norefund_pener[$key],
-    //     'no_penerbangan' => $no_penerbangan[$key]
-    //   );
-    //   $this->db->insert_batch('tb_detail', $result);
-    //
-    // }
 
     $norefund_pener = $this->input->post('no_refund_penerbangan');
     $no_penerbangan = $this->input->post('no_penerbangan');
@@ -213,14 +229,7 @@ class M_refund extends CI_Model{
     $sql    = rtrim($sql, ",");
     $insert = $this->db->query($sql);
 
-    if(!$insert)
-    {
-      echo "Gagal Insert ";
-    }else{
-      echo "berhasil";
-    }
   }
-
 
   function updatePessenger()
   {
@@ -230,7 +239,8 @@ class M_refund extends CI_Model{
       'kd_booking' => $norefund
     );
     $data2 = array(
-      'refund_status' => 'Verify'
+      'refund_status' => 'Verify',
+      'secure_code'   => md5($norefund)
     );
     for($i=0; $i<count($no_tiket); $i++)
     {
@@ -242,25 +252,8 @@ class M_refund extends CI_Model{
 
   }
 
-
-  function confirmrefund()
-  {
-    if(isset($_POST['confirmrefund'])){
-      $keyrefund = $this->input->post('id_refund');
-      $data = array(
-        'refund_status' => 'verify'
-      );
-
-      for($i=0; $i<count($keyrefund); $i++)
-      {
-        $this->db->where('no_refund', $keyrefund[$i]);
-        $this->db->update('tb_refund', $data);
-      }
-    }
-  }
   //---------------------------------------------------
   //aksion 3
-
   function deletedetailmaster()
   {
     $kd_booking      = $this->input->post('kd_booking');
@@ -274,6 +267,7 @@ class M_refund extends CI_Model{
     $this->db->delete('tb_detail');
 
   }
+  //test agar ini tidak berfungsi ini tidak terpakai
   function insertNewkodeBooking()
   {
     $no_refund      = $this->input->post('no_refund');
@@ -290,7 +284,6 @@ class M_refund extends CI_Model{
       'email'          => $email
     );
     $this->db->insert('tb_booking', $data);
-
   }
 
 

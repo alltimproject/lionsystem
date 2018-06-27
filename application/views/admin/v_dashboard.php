@@ -3,6 +3,7 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
+
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Dashboard</h1>
@@ -29,7 +30,7 @@
                 <div class="info-box-content">
                   <span class="info-box-text">Refund Today's</span>
                   <span class="info-box-number">
-                    3 data On Prosess
+                    <div id="showalljumlahdata_refund"></div>
 
                   </span>
                 </div>
@@ -51,8 +52,6 @@
             </div>
             </div>
         </div>
-
-
         <!-- data refund -->
           <div class="row">
                  <div class="col-md-6 animated bounceInLeft">
@@ -96,32 +95,97 @@
 
                    <div class="col-md-6 animated bounceInRight">
                      <div class="card">
-                       <div class="card-header no-border">
+                       <div class="card-header no-border" style="padding-top:40px; padding-bottom:20px;">
                          <div class="d-flex justify-content-between">
                            <h3 class="card-title"><i class="fa fa-search"></i> Data Rescedule</h3>
-                           <a href="javascript:void(0);">View Report</a>
+                           <select class="form-control" name="kd_booking" style="width:40%" id="selectNorefund">
+                             <option value="" style="font-size:13%">-- Pilih No Rescedule -- </option>
+                            <!-- <?php foreach ($getnorefund as $key){
+                              echo "<option value='$key->no_refund'>$key->no_refund</option>";
+                            }
+                            ?> -->
+                           </select>
                          </div>
                        </div>
                        <div class="card-body">
-                         <table class="table table-striped table-valign-middle">
-                           <thead>
-                           <tr>
-                             <th>Product</th>
-                             <th>Price</th>
-                             <th>Sales</th>
-                             <th>More</th>
-                           </tr>
-                           </thead>
-                           <tbody>
+                         <table class="table table-striped table-hover">
+                           <thead id="heading-rescedule">
+                             <tr>
+                               <th style="font-size:70%">Nama Penumpang</th>
+                               <th style="font-size:70%">Tanggal Refund</th>
 
-                           </tbody>
-                         </table>
+                               <th style="font-size:70%">No Tiket</th>
+                             </tr>
+                           </thead>
+                           <tbody id="show_rescedule"></tbody>
+                           <div id="btn-check-res"></div>
+                          </table>
                          </div>
                          <!-- /.d-flex -->
                        </div>
                      </div>
                    <!-- /.card -->
                   </div>
+
+
+        <div class="card">
+          <div class="card-header">
+
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-6 animated fadeInUp">
+                 <div class="d-flex justify-content-between">
+                 <h3 class="card-title card-success"><i class="fa fa-user"></i> Data Refund</h3>
+                 <button class="btn btn-danger" id="jumlahverify_refund"></button>
+                 </div>
+                 <h6 style="color:grey;" >STATUS : VERIFIKASI</h6>
+               <br>
+                 <table class="table table-hover table-striped">
+                  <thead>
+                    <tr class="bg-danger">
+                      <th style="font-size:60%;">Kode Booking</th>
+                      <th style="font-size:60%;">Tanggal Refund</th>
+                      <th style="font-size:60%;">Kode Booking Lama</th>
+                      <th style="font-size:60%;">Email</th>
+                      <th style="font-size:60%;"></th>
+                    </tr>
+                  </thead>
+                  <tbody id="show_data_refund_verify"></tbody>
+                 </table>
+
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex justify-content-between">
+                <h3 class="card-title card-success"><i class="fa fa-user"></i> Data Refund</h3>
+                <button class="btn btn-danger" id="">a</button>
+                </div>
+                    <br>
+                 <table class="table table-hover table-striped">
+                  <thead>
+                    <tr class="bg-danger">
+                      <th style="font-size:60%;">Kode Booking</th>
+                      <th style="font-size:60%;">Tanggal Refund</th>
+                      <th style="font-size:60%;">Kode Booking Lama</th>
+                      <th style="font-size:60%;">Email</th>
+                      <th style="font-size:60%;">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                 </table>
+
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
 
 
 
@@ -246,16 +310,17 @@
   <script type="text/javascript">
   $(document).ready(function() {
     loadbooking();
+    loadalldatarefund();
+    getrefundverify();
 
     setInterval(function(){
         loadbooking();
+        loadalldatarefund();
     }, 10000);
 
     $('#heading-refund').hide();
+    $('#heading-rescedule').hide();
     // loadrefund();
-
-
-
 
     $('#myTable').dataTable();
 
@@ -360,10 +425,6 @@
 
     //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-
-
-
     $('#selectNorefund').change(function(){
       var no_refund = $('#selectNorefund').val();
       console.log(no_refund);
@@ -388,7 +449,7 @@
                          '<tr>';
             });
             btn_check += '<a href="<?= base_url() ?>adm/dashboard/checkdata/'+data.norefund+'" class="btn btn-info btn-xs item-refund" data="'+data.kd_booking+'">CHECK</a>';
-            // jumlahdata = data.jumlahdata;
+            jumlahdata = data.jumlahdata;
           }else{
             $('#btn-check').hide();
             html += '<p> Tidak Ada Data </p>';
@@ -400,6 +461,59 @@
         }
       });
     });
+
+    function loadalldatarefund()
+    {
+      var jumlahdata_refund = '';
+      $.ajax({
+        type: 'ajax',
+        url: '<?= base_url() ?>adm/dashboard/get_refund',
+        dataType: 'json',
+        success: function(data){
+          jumlahdata_refund = data.jumlahdata+' data on proses';
+          $('#showalljumlahdata_refund').html(jumlahdata_refund);
+        }
+
+      });
+
+    }
+
+    function getrefundverify()
+    {
+      var html = '';
+      var jumlahdata = '';
+      $.ajax({
+        type: 'ajax',
+        url: '<?= base_url() ?>adm/dashboard/get_refund_verify',
+        dataType: 'json',
+        success: function(data)
+        {
+          if(data.data.length != 0){
+
+            $.each(data.data, function(key, value) {
+              html += '<tr>'+
+                      '<td style="font-size:70%;">'+value.no_refund+'</td>'+
+                      '<td style="font-size:70%;">'+value.tgl_refund+'</td>'+
+                      '<td style="font-size:70%;">'+value.kd_booking+'</td>'+
+                      '<td style="font-size:70%;">'+value.refund_email+'</td>'+
+                      '<td style="font-size:70%; color:green;" >'+value.refund_status+'</td>'+
+                      '<td>'+
+                        '<a class="btn btn-info btn-xs" href="javascript:;"><i class=""></i>  </a>'+
+                      '</td>'+
+                      '</tr>';
+            });
+            jumlahdata = data.jumlahdataverify+' Data Tiket';
+          }else{
+              html += '<p> Tidak Ada Data </p>';
+          }
+              $('#show_data_refund_verify').html(html);
+              $('#jumlahverify_refund').html(jumlahdata);
+        }
+      });
+    }
+
+
+
 
 
 

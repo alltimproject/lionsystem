@@ -8,7 +8,11 @@ class Dashboard extends CI_Controller{
     parent::__construct();
     $this->load->model('admin/m_dashboard');
     $this->load->model('admin/m_refund');
-    //Codeigniter : Write Less Do More
+
+    if($this->session->userdata('login') != 1){
+      redirect(base_url('admin'));
+    }
+
   }
 
   function index()
@@ -24,6 +28,13 @@ class Dashboard extends CI_Controller{
   function getrefund()
   {
     $data = $this->m_dashboard->getrefund();
+    echo json_encode($data);
+  }
+
+  function get_refund_verify()
+  {
+    $data['jumlahdataverify'] = $this->m_refund->get_refund_verify()->num_rows();
+    $data['data'] = $this->m_refund->m_refund->get_refund_verify()->result();
     echo json_encode($data);
   }
 
@@ -56,13 +67,21 @@ class Dashboard extends CI_Controller{
 
   function get_refund()
   {
-    $data = $this->m_refund->get_refund();
+
+    $data = $this->m_refund->get_refund()->result();
+    $data['jumlahdata'] = $this->m_refund->get_refund()->num_rows();
+    echo json_encode($data);
+  }
+  function get_refund_today()
+  {
+    $data = $this->m_refund->get_refund_today()->result();
+    $data['jumlahdata_today'] = $this->m_refund->get_refund_today()->num_rows();
     echo json_encode($data);
   }
 
   function checkdata($norefund)
   {
-
+      $this->session->set_flashdata('notifadmin', 'Periksa kembali data refund dan data booking sebelum melakukan proses refund ');
       $data['title'] = 'Check Data';
       $this->load->view('admin/include/header', $data);
 
@@ -70,8 +89,6 @@ class Dashboard extends CI_Controller{
         'tb_refund_pessenger.no_refund' => $norefund
       );
       $data['checkdataid']  = $this->m_dashboard->getrefundtiket($where);
-
-
 
       //get tiket refund
        $data['gettiketRefund']       = $this->m_refund->getTiketRefund($norefund);
@@ -132,6 +149,7 @@ class Dashboard extends CI_Controller{
       'tb_refund_pessenger.no_refund' => $norefund
     );
     $data['data'] = $this->m_refund->check_refund_tiket($where)->result();
+    $data['jumlahdata'] = $this->m_refund->check_refund_tiket($where)->num_rows();
     $data['norefund'] = $norefund;
     echo json_encode($data);
 

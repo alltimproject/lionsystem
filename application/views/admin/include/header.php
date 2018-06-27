@@ -24,12 +24,34 @@
   <link rel="stylesheet" href="<?= base_url().'assets/bootstrap/css/bootstrap3-wysihtml5.min.css' ?>">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <style media="screen">
+  #note {
+  position: absolute;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fde073;
+  text-align: center;
+  line-height: 2.5;
+}
+.cssanimations.csstransforms #close {
+  display: none;
+}
+
+  </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+    <?php
+    if($this->session->flashdata('notifadmin')):?>
+    <div id="note">
+    <?php echo $this->session->flashdata('notifadmin') ?>
+    </div>
+   <?php endif ?>
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -42,7 +64,6 @@
         <a href="#" class="nav-link">Contact</a>
       </li>
     </ul>
-
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
@@ -54,58 +75,25 @@
         </div>
       </div>
     </form>
-
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
+        <a class="nav-link" data-toggle="dropdown" href="#modalDatarefund" id="tampiltoday">
           <i class="fa fa-comments-o"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
+          <span class="badge badge-danger navbar-badge" id="notif_jumlahrefund"></span>
         </a>
+
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-                  Brad Diesel
+                  <div id="showdata"></div>
                   <span class="float-right text-sm text-danger"><i class="fa fa-star"></i></span>
                 </h3>
                 <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fa fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fa fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
                 <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
               </div>
             </div>
@@ -195,7 +183,6 @@
               </a>
             </li>
 
-
             <li class="nav-header">RESCHEDULE</li>
             <li class="nav-item">
               <li class="nav-item">
@@ -211,23 +198,59 @@
 
               <li class="nav-item" style="padding-top:80px;">
                 <li class="nav-item bg-danger">
-                  <a href="<?= base_url('adm/refund') ?>" class="nav-link">
-                    <i class="nav-icon fa fa-circle-o"></i>
+                  <a href="<?= base_url('admin/logout') ?>" class="nav-link">
+                    <i class="nav-icon fa fa-toggle-left"></i>
                     <p>
                       LOGOUT
 
                     </p>
                   </a>
-                </li>
+                    </li>
+                  </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+              </div>
+              <!-- /.sidebar -->
+            </aside>
 
+  <!-- modal pessenger -->
+   <div class="modal fade" id="ModaldataToday" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+       <div class="modal-dialog" role="document">
 
+           <div class="modal-content" style="width:190%;">
+               <div class="modal-header">
+                 <div class="col-md-6 animated zoomIn">
+                   <div class="info-box">
+                   <span class="info-box-icon bg-success elevation-1"><i class="fa fa-credit-card"></i></span>
+                   <div class="info-box-content">
+                     <span class="info-box-text">Tanggal Refund</span>
+                   </div>
+                 </div>
+                   <div id=""></div>
+               </div>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+                   <h6 class="modal-title" id="myModalLabel"></h6>
+               </div>
 
+               <form class="form-horizontal">
+               <div class="modal-body">
 
+               <table class="table table-hover">
+                 <thead>
+                 <tr class="bg-warning">
+                   <th style="font-size:80%">No Refund</th>
+                   <th style="font-size:80%">Tanggal Refund</th>
+                 </tr>
+               </thead>
+               <tbody id=""></tbody>
+               </table>
+               </div>
+               <div class="modal-footer">
+                   <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+               </div>
+               </form>
+           </div>
+       </div>
+   </div>
 
-
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
+   <!-- modal pessenger -->

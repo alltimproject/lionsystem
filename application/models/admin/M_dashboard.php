@@ -2,7 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_dashboard extends CI_Model{
-
   function getbooking()
   {
     $this->db->distinct('tb_booking.kd_booking');
