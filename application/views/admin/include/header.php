@@ -171,7 +171,11 @@
            </a>
          </li>
 
+<<<<<<< HEAD
+          <li class="nav-header">DATA</li>
+=======
           <li class="nav-header">REFUND</li>
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
           <li class="nav-item">
             <li class="nav-item">
               <a href="<?= base_url('adm/refund') ?>" class="nav-link">
@@ -183,6 +187,21 @@
               </a>
             </li>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            <li class="nav-item">
+              <a href="<?= base_url('adm/rechedule') ?>" class="nav-link">
+                <i class="nav-icon fa fa-circle-o"></i>
+                <p>
+                  Data Rechedule
+                  <span class="badge badge-info right">2</span>
+                </p>
+              </a>
+            </li>
+=======
+
+>>>>>>> d35f3204153dc45e5d437b360226429fe5148057
             <li class="nav-header">RESCHEDULE</li>
             <li class="nav-item">
               <li class="nav-item">
@@ -205,6 +224,7 @@
 
                     </p>
                   </a>
+<<<<<<< HEAD
                     </li>
                   </ul>
                 </nav>
@@ -212,6 +232,11 @@
               </div>
               <!-- /.sidebar -->
             </aside>
+=======
+                </li>
+
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
+>>>>>>> d35f3204153dc45e5d437b360226429fe5148057
 
   <!-- modal pessenger -->
    <div class="modal fade" id="ModaldataToday" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

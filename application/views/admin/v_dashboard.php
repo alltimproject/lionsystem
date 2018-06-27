@@ -2,8 +2,12 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
+<<<<<<< HEAD
       <div class="container-fluid">
 
+=======
+      <div class="container">
+>>>>>>> d35f3204153dc45e5d437b360226429fe5148057
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Dashboard</h1>
@@ -60,6 +64,15 @@
                        <div class="d-flex justify-content-between">
                          <h3 class="card-title"><i class="fa fa-search"></i> Data Refund</h3>
 
+<<<<<<< HEAD
+                         <select class="form-control" name="kd_booking" style="width:40%" id="selectKdBooking">
+                           <option value="" style="font-size:13%">-- Pilih Kode Booking -- </option>
+                          <?php foreach ($getkodebooking as $key){
+                            echo "<option value='$key->kd_booking'>$key->kd_booking</option>";
+                          }
+                          ?>
+                         </select>
+=======
 
                          <select class="form-control" name="kd_booking" style="width:40%" id="selectNorefund">
                            <option value="" style="font-size:13%">-- Pilih No Refund -- </option>
@@ -69,6 +82,7 @@
                           ?>
                          </select>
 
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
                        </div>
                      </div>
                          <div class="card-body">
@@ -79,10 +93,18 @@
                            <table class="table table-striped table-hover">
                              <thead id="heading-refund">
                                <tr>
+<<<<<<< HEAD
+                                 <th style="font-size:70%">No Tiket</th>
+                                 <th style="font-size:70%">Nama Penumpang</th>
+
+                                 <th style="font-size:70%">Tanggal Refund</th>
+                                 <th style="font-size:70%">Tipe Penumpang</th>
+=======
                                  <th style="font-size:70%">Nama Penumpang</th>
                                  <th style="font-size:70%">Tanggal Refund</th>
 
                                  <th style="font-size:70%">No Tiket</th>
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
                                </tr>
                              </thead>
                              <tbody id="show_refund"></tbody>
@@ -313,10 +335,16 @@
     loadalldatarefund();
     getrefundverify();
 
+<<<<<<< HEAD
+        setInterval(function(){
+            loadbooking();
+        }, 10000);
+=======
     setInterval(function(){
         loadbooking();
         loadalldatarefund();
     }, 10000);
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
 
     $('#heading-refund').hide();
     $('#heading-rescedule').hide();
@@ -340,6 +368,13 @@
                     '<td style="font-size:80%">'+data[i].tgl_booking+'</td>'+
                     '<td style="font-size:80%">'+data[i].tipe_booking+'</td>'+
                     '<td style="font-size:80%">'+data[i].nama_depan+' '+data[i].nama_belakang+'</td>'+
+<<<<<<< HEAD
+                    '<td style="font-size:80%">'+data[i].no_tlp+'</td>'+
+                    '<td style="font-size:80%">'+data[i].status+'</td>'+
+                    '<td style="text-align:right">'+
+                      '<a href="javascript:;" class="btn btn-info btn-xs item-penumpang" data="'+data[i].kd_booking+'">Lihat Penumpang</a>'+
+                    '</tr>';
+=======
                     '<td style="font-size:80%">'+data[i].no_tlp+'</td>';
 
                     if(data[i].status == 'Confirmed'){
@@ -351,13 +386,17 @@
                     html+='<td style="text-align:right">'+
                           '<a href="javascript:;" class="btn btn-info btn-xs item-penumpang" data="'+data[i].kd_booking+'">Lihat Penumpang</a>'+
                           '</tr>';
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
           }
           $('#show_data').html(html);
 
         }
       });
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
     //---------------------------------------------------------------------------------------------------------------------------------------//
 
     $('#show_data').on('click','.item-penumpang', function(){
@@ -425,22 +464,51 @@
 
     //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    $('#selectKdBooking').change(function(){
+      var kd_booking = $('#selectKdBooking').val();
+
+=======
+
+
+
+
+>>>>>>> d35f3204153dc45e5d437b360226429fe5148057
     $('#selectNorefund').change(function(){
       var no_refund = $('#selectNorefund').val();
       console.log(no_refund);
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
       var html = '';
       var i;
       var btn_check = '';
       var jumlahdata = '';
       $.ajax({
         type: 'POST',
+<<<<<<< HEAD
+        url: '<?= base_url() ?>adm/dashboard/showrefund/'+kd_booking,
+=======
         url: '<?= base_url() ?>adm/dashboard/showrefund/'+no_refund,
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
         dataType: 'json',
         success: function(data){
           if(data.data.length != ''){
 
             $.each(data.data, function(key,value){
                 html += '<tr>'+
+<<<<<<< HEAD
+                          '<td style="font-size:70%">'+value.no_tiket+'<br>'+
+                           '<p class="text-center bg-danger" style="font-size:85%;"><b>'+value.refund_status+'</b><p>'+
+                           '</td>'+
+                           '<td style="font-size:70%">'+value.nama_pessenger+'</td>'+
+                           '<td style="font-size:70%">'+value.tgl_refund+'</td>'+
+                           '<td style="font-size:70%">'+value.tipe_pessenger+'</td>'+
+                         '<tr>';
+            });
+            btn_check += '<a href="<?= base_url() ?>adm/dashboard/checkdata/'+data.kd_booking+'" class="btn btn-info btn-xs item-refund" data="'+data.kd_booking+'">CHECK</a>';
+            jumlahdata = data.jumlahdata;
+=======
                           '<td style="font-size:80%"><b>'+value.nama_pessenger+'</b><br>'+
                            '<p class="text-center bg-danger" style="font-size:85%;"><b>'+value.refund_status+'</b><p>'+
                            '</td>'+
@@ -449,7 +517,12 @@
                          '<tr>';
             });
             btn_check += '<a href="<?= base_url() ?>adm/dashboard/checkdata/'+data.norefund+'" class="btn btn-info btn-xs item-refund" data="'+data.kd_booking+'">CHECK</a>';
+<<<<<<< HEAD
             jumlahdata = data.jumlahdata;
+=======
+            // jumlahdata = data.jumlahdata;
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
+>>>>>>> d35f3204153dc45e5d437b360226429fe5148057
           }else{
             $('#btn-check').hide();
             html += '<p> Tidak Ada Data </p>';
@@ -458,6 +531,10 @@
           $('#show_refund').html(html).addClass('animated fadeInUp');
           $('#btn-check').html(btn_check).show();
           $('#title-jumlahdata').html(jumlahdata);
+<<<<<<< HEAD
+
+=======
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
         }
       });
     });

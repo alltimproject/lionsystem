@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_refund extends CI_Model{
+<<<<<<< HEAD
   function get_refund()
   {
     //parsing json encode
@@ -24,6 +25,20 @@ class M_refund extends CI_Model{
     return $query;
   }
 
+=======
+<<<<<<< HEAD
+
+  function get_refund()
+  {
+    $this->db->select('*');
+    $this->db->from('tb_refund');
+    $this->db->join('tb_pessenger','tb_pessenger.no_tiket = tb_refund.no_tiket');
+    $this->db->where('refund_status', 'on proses');
+
+    return $this->db->get()->result();
+  }
+=======
+>>>>>>> d35f3204153dc45e5d437b360226429fe5148057
   //num rows ----
   function getwhererefund($where)
   {
@@ -94,24 +109,40 @@ class M_refund extends CI_Model{
     return $this->db->get()->result();
   }
   //-----------------
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
 
   function check_refund_tiket($where)
   {
     $this->db->select('*');
+<<<<<<< HEAD
+    $this->db->from('tb_refund');
+    $this->db->join('tb_pessenger','tb_pessenger.no_tiket = tb_refund.no_tiket');
+    $this->db->where($where);
+    $this->db->where('refund_status','on proses');
+=======
     $this->db->from('tb_refund_pessenger');
     $this->db->join('tb_refund','tb_refund.no_refund = tb_refund_pessenger.no_refund');
     $this->db->join('tb_pessenger','tb_pessenger.no_tiket = tb_refund_pessenger.no_tiket');
     $this->db->where($where);
     $this->db->where('refund_status','onproses');
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
 
     return $this->db->get();
   }
 
+<<<<<<< HEAD
+  function check_penerbangan_kdbooking($where)
+  {
+    $this->db->select('*');
+    $this->db->from('tb_detail');
+    $this->db->join('tb_penerbangan', 'tb_penerbangan.no_penerbangan = tb_detail.no_penerbangan');
+=======
   function check_penerbangan_norefund($where)
   {
     $this->db->select('*');
     $this->db->from('tb_refund_detail');
     $this->db->join('tb_penerbangan', 'tb_penerbangan.no_penerbangan = tb_refund_detail.no_penerbangan');
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
     $this->db->where($where);
 
     return $this->db->get()->result();
@@ -132,11 +163,29 @@ class M_refund extends CI_Model{
     $this->db->join('tb_booking','tb_booking.kd_booking = tb_pessenger.kd_booking');
     $this->db->join('tb_refund', 'tb_refund.no_tiket = tb_pessenger.no_tiket');
     $this->db->where($where);
+<<<<<<< HEAD
+    $this->db->where('tb_refund.refund_status','on proses');
+=======
     $this->db->where('tb_refund.refund_status','onproses');
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
 
     return $this->db->get()->result();
   }
 
+<<<<<<< HEAD
+  function deleterefund()
+  {
+    if(isset($_POST['cancelrefund'])){
+      $keyrefund = $this->input->post('id_refund');
+      for($i=0; $i<count($keyrefund); $i++)
+      {
+        $this->db->where('no_refund', $keyrefund[$i]);
+        $this->db->delete('tb_refund');
+      }
+    }
+  }
+
+=======
   function cancelrefund()
   {
     if(isset($_POST['cancelrefund'])){
@@ -252,6 +301,33 @@ class M_refund extends CI_Model{
 
   }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
+  function confirmrefund()
+  {
+    if(isset($_POST['confirmrefund'])){
+      $keyrefund = $this->input->post('id_refund');
+      $data = array(
+        'refund_status' => 'verify'
+      );
+
+      for($i=0; $i<count($keyrefund); $i++)
+      {
+        $this->db->where('no_refund', $keyrefund[$i]);
+        $this->db->update('tb_refund', $data);
+      }
+<<<<<<< HEAD
+
+
+    }
+  }
+
+=======
+    }
+  }
+>>>>>>> d35f3204153dc45e5d437b360226429fe5148057
   //---------------------------------------------------
   //aksion 3
   function deletedetailmaster()
@@ -291,4 +367,5 @@ class M_refund extends CI_Model{
 
 
 
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
 }

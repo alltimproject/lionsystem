@@ -20,7 +20,11 @@ class Dashboard extends CI_Controller{
    $data['title'] = 'Dashboard';
    $this->load->view('admin/include/header', $data);
 
+<<<<<<< HEAD
+   $data['getkodebooking'] = $this->m_dashboard->getKodebooking();
+=======
    $data['getnorefund'] = $this->m_dashboard->getrefund();
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
    $this->load->view('admin/v_dashboard', $data);
    $this->load->view('admin/include/footer');
   }
@@ -79,13 +83,23 @@ class Dashboard extends CI_Controller{
     echo json_encode($data);
   }
 
+<<<<<<< HEAD
+  function checkdata($kd_booking)
+=======
   function checkdata($norefund)
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
   {
       $this->session->set_flashdata('notifadmin', 'Periksa kembali data refund dan data booking sebelum melakukan proses refund ');
       $data['title'] = 'Check Data';
       $this->load->view('admin/include/header', $data);
 
       $where = array(
+<<<<<<< HEAD
+        'tb_booking.kd_booking' => $kd_booking
+      );
+      $data['checkdataid'] = $this->m_refund->get_refund_tiket_byBooking($where);
+
+=======
         'tb_refund_pessenger.no_refund' => $norefund
       );
       $data['checkdataid']  = $this->m_dashboard->getrefundtiket($where);
@@ -117,6 +131,7 @@ class Dashboard extends CI_Controller{
       );
        $data['getpenerbanganRefund'] = $this->m_refund->getpenerbanganRefund($norefund, $where3);
       //-------------------------------------------------------------------------------------
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
       $this->load->view('admin/v_checkdata', $data);
 
       $this->load->view('admin/include/footer');
@@ -124,12 +139,21 @@ class Dashboard extends CI_Controller{
 
   }
 
+<<<<<<< HEAD
+  function getRefundPenerbangan($kd_booking)
+  {
+    $where = array(
+      'kd_booking' => $kd_booking
+    );
+    $data = $this->m_refund->check_penerbangan_kdbooking($where);
+=======
   function getRefundPenerbangan($norefund)
   {
     $where = array(
       'tb_refund_detail.no_refund' => $norefund
     );
     $data = $this->m_refund->check_penerbangan_norefund($where);
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
     echo json_encode($data);
   }
 
@@ -142,6 +166,17 @@ class Dashboard extends CI_Controller{
     echo json_encode($data);
   }
 
+<<<<<<< HEAD
+  function showrefund($kd_booking)
+  {
+    $where = array(
+      'kd_booking' => $kd_booking
+    );
+    $data['data'] = $this->m_refund->check_refund_tiket($where)->result();
+    $data['jumlahdata'] = $this->m_refund->check_refund_tiket($where)->num_rows();
+    $data['kd_booking'] = $kd_booking;
+    echo json_encode($data);
+=======
   function showrefund($norefund)
   {
 
@@ -154,6 +189,7 @@ class Dashboard extends CI_Controller{
     echo json_encode($data);
 
 
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
   }
 
   function showallrefund()

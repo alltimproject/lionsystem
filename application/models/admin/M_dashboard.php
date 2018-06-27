@@ -44,6 +44,17 @@ class M_dashboard extends CI_Model{
     return $this->db->get()->result();
   }
 
+<<<<<<< HEAD
+  function getKodebooking()
+  {
+    $this->db->distinct('kd_booking');
+    $this->db->select('kd_booking');
+    $this->db->from('tb_pessenger');
+    $this->db->join('tb_refund', 'tb_refund.no_tiket = tb_pessenger.no_tiket');
+    $this->db->where('refund_status','on proses');
+    return $this->db->get()->result();
+  }
+=======
   //get No refund
   function getrefund()
   {
@@ -72,5 +83,6 @@ class M_dashboard extends CI_Model{
   }
 
 
+>>>>>>> a98b0010e8a80ec42b0bf151cadf50584754880e
 
 }
